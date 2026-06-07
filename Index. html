@@ -1,188 +1,69 @@
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="style.css" />
-  <title>ashwanikumar.com</title>
- <link
-       href="https://fonts.googleapis.com/css2?family=inter:wght@300;400;500;;600;700&display=swap" rel"stylesheet">
-   
-   <style>
-   *{
-     margin:0;
-     padding:0;
-     box-sizing:border_box;
-     font-family: 'Inter' ,sans-serif;
-     }
-     
-    body{
-     min-height: 100vh;
-     background:#0f182a;
-     color:white;
-     overflow-x:hidden;
-     }
-     
-     
-     /* Background Glow */
-     body::before{
-     content:'';
-     position: fixed;
-     width:500px;
-     height: 500px;
-     background: #3b82f6;
-     filter:blur(800px);
-     opacity:.25;
-     top:-150px;
-     left:-180px;
-     }
-     
-     
-     body::after{
-     content:'';
-     position:fixed;
-     width:500px;
-     background:#8b5cf6;
-     filter:blur(300px);
-     opacity:.2;
-     bottom:-150px;
-     right:-180px;
-     }
-     
-     
-     /*Navbar*/
-     nav{
-     width:100%;
-     padding:20px 8%;
-     display:flex;
-     justify-content:space-between;
-     align-items:center;
-     position:fixed;
-     top:0;
-     backdrop-filter:blur(250px);
-     background:rgba(15,23,42,.4);
-     z-index:1000;
-     }
-     
-     
-     
-    .logo{
-     font-size:28px;
-     font-weight:700;
-     }
-     
-     
-     .menu{
-     display:flex;
-     gap:30px
-     }
-     
-     
-     .menu a{
-     color:white;
-     text-decoration:none;
-     }
-     
-     .box{
-     width:300px;
-     height:250px;
-     background:#111;
-     border:2px solid #00ffcc;
-     border-radius:20px;
-     padding:20px;
-     color:yellow;
-     box-shadow:0 10px 30px;
-     egba(0,255,204,0.3);
-     }
-     
-     
-     /*    Hero     */
-     
-     .hero{
-     min-height:10vh;
-     display:flex;
-     justify-content:center;
-     align--items:center
-     text-align:center;
-     padding:20px;
-     }
-     
-     .hero-content{
-     max-width:800px;
-     }
-     
-     .hero h1{
-     font-size:60px;
-     margin-bottom:30px;
-     }
-   
-     
-     
-     .hero p{
-     color:#94a3b8;
-     font-size:18px;
-     margin-bottom;30px;
-     }
-     
-     
-    .btn{
-     display:inline-block:
-     padding:15px 35px;
-     text-decoration:none;
-     color:white;
-     
-     background:linear-gradiant(135deg, #3b82f6,#8b5cf6);
-     transition:.3s;
-     }
-     
-     /* Glass Card */
-     .card{
-     margin:50px auto:
-     width:90px;
-     max-width:500px;
-     padding:30px;
-     norder-radius:25px;
-     0background:rgba(255,255,255,0.5);
-     border:1px solid rgba(255,255,255,.1);
-     backdrop-filter:blur(20px);
-     box-shadow:0 10px 40px rgba(0,0,0,.3
-     }
-   </style>
-   </nav>
-  <body>
-    
-    <nav>
-      <div class="logo">Apana Bhai Durgesh Nai</div>
-      <div class="menu">
-        <a href="#homebaba">Home</a>
-        <a href="#">About</a>
-        <a href="#">Contact</a>
-        <a href="#">More</a>
-      </div>
-    </nav>
-    
-    <section class="hero";>
-      <div class="hero-content">
-        <h1>High Drama For Making Time </h1>
-        <p>Modern , Clean And Professional Player</>
-          <a href="#" class="btn">Get Started By You</a>
-      
-      
-      <div class="card">
-        <h2>Glass Morphism Card</h2>
-        <p>This is You Mindset 😉😉 Component.</p>
-      </div>
-      
-      
-      <div class="box">
-        <h2>Smooth Box</h>
-        <p>Bahut Ghatiya Box Ba Ho Marade.</p>
-      </div>
-      
-      </div>
-    </section>
-  
-  </body>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nova Apps</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="cursor"></div>
+
+<nav>
+<div class="logo">NovaApps</div>
+
+<ul>
+<li><a href="#">Home</a></li>
+<li><a href="#">Apps</a></li>
+<li><a href="#">Blog</a></li>
+<li><a href="#">Contact</a></li>
+</ul>
+</nav>
+
+<section class="hero">
+<div>
+<h1>Premium APK & Blog Website</h1>
+<p>Modern Professional UI</p>
+
+<button class="btn">
+Explore Now
+</button>
+</div>
+</section>
+
+<section class="section">
+
+<h2 class="title">Featured Apps</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>CapCut Pro</h3>
+<p>Professional Video Editor</p>
+</div>
+
+<div class="card">
+<h3>Alight Motion</h3>
+<p>Motion Graphics Editor</p>
+</div>
+
+<div class="card">
+<h3>Kinemaster</h3>
+<p>Advanced Editing App</p>
+</div>
+
+</div>
+
+</section>
+
+<footer>
+© 2026 Nova Apps
+</footer>
+
+<script src="script.js"></script>
+
+</body>
 </html>
