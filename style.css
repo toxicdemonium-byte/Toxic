@@ -1,3 +1,25 @@
-body{
-    background:red;
+.container{
+    position: relative;
+    width: 850px;
+    height: 550px;
+    background:#111;
+    overflow:hidden;
+}
+
+.form-box{
+    position:absolute;
+    width:50%;
+    transition:.7s ease;
+}
+
+.container.active .login{
+    transform:translateX(-100%);
+}
+
+.container.active .register{
+    transform:translateX(0);
+}
+
+.register{
+    transform:translateX(100%);
 }
