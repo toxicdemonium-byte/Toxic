@@ -565,3 +565,63 @@ a.click();
 fileInput.click();
 
 });
+document
+.getElementById("splitPdf")
+?.addEventListener("click",()=>{
+
+fileInput.multiple=false;
+
+fileInput.onchange=async(e)=>{
+
+const file=e.target.files[0];
+
+const bytes=
+await file.arrayBuffer();
+
+const pdf=
+await PDFLib.PDFDocument.load(bytes);
+
+for(
+let i=0;
+i<pdf.getPageCount();
+i++
+){
+
+const newPdf=
+await PDFLib.PDFDocument.create();
+
+const [page]=
+await newPdf.copyPages(
+pdf,
+[i]
+);
+
+newPdf.addPage(page);
+
+const pdfBytes=
+await newPdf.save();
+
+const blob=
+new Blob(
+[pdfBytes],
+{type:"application/pdf"}
+);
+
+const a=
+document.createElement("a");
+
+a.href=
+URL.createObjectURL(blob);
+
+a.download=
+`page-${i+1}.pdf`;
+
+a.click();
+
+}
+
+};
+
+fileInput.click();
+
+});
