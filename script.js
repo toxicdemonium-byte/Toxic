@@ -1,17 +1,3 @@
-const container = document.querySelector(".container");
-
-function signup(){
-    container.classList.add("active");
-}
-
-function signin(){
-    container.classList.remove("active");
-}
-
-
-
-
-
 
 const cursor = document.querySelector(".cursor");
 
@@ -773,3 +759,55 @@ console.error(error);
 );
 
 });
+function addToHistory(name){
+
+let history=
+JSON.parse(
+localStorage.getItem(
+"downloads"
+)
+)||[];
+
+history.push(name);
+
+localStorage.setItem(
+"downloads",
+JSON.stringify(history)
+);
+
+renderHistory();
+
+}
+
+function renderHistory(){
+
+const list=
+document.getElementById(
+"historyList"
+);
+
+if(!list) return;
+
+list.innerHTML="";
+
+let history=
+JSON.parse(
+localStorage.getItem(
+"downloads"
+)
+)||[];
+
+history.reverse().forEach(item=>{
+
+const li=
+document.createElement("li");
+
+li.textContent=item;
+
+list.appendChild(li);
+
+});
+
+}
+
+renderHistory();
