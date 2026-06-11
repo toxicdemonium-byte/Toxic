@@ -718,3 +718,58 @@ reader.readAsDataURL(file);
 fileInput.click();
 
 });
+document
+.getElementById("ocrTool")
+?.addEventListener("click",()=>{
+
+fileInput.onchange=async(e)=>{
+
+const file=e.target.files[0];
+
+document
+.getElementById("ocrResult")
+.innerHTML="Scanning...";
+
+const result=
+await Tesseract.recognize(
+file,
+"eng"
+);
+
+document
+.getElementById("ocrResult")
+.innerText=
+result.data.text;
+
+};
+
+fileInput.click();
+
+});
+document
+.getElementById("qrGenerator")
+?.addEventListener("click",()=>{
+
+const text=
+prompt("Enter text or URL");
+
+if(!text) return;
+
+QRCode.toCanvas(
+
+document.getElementById(
+"qrCanvas"
+),
+
+text,
+
+function(error){
+
+if(error)
+console.error(error);
+
+}
+
+);
+
+});
