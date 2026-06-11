@@ -1,38 +1,38 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Toxic - All In One Document Toolkit</title>
 
 <link rel="stylesheet" href="style.css">
 
+<link rel="manifest" href="manifest.json">
+
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/compressorjs/1.2.1/compressor.min.js"></script>
-
-
-<script src="https://unpkg.com/pdf-lib"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-
-<script src="https://unpkg.com/tesseract.js@5/dist/tesseract.min.js"></script>
-
-<script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
-
 </head>
+
 <body>
+
+<!-- PRELOADER -->
+
 <div id="preloader">
-    <div class="loader"></div>
+<div class="loader"></div>
 </div>
+
+<!-- CURSOR -->
+
+<div class="cursor"></div>
+
+<!-- TOP BUTTON -->
 
 <button id="topBtn">↑</button>
 
-<div class="menu-btn">
-☰
-</div>
-
-<div class="cursor"></div>
+<!-- NAVBAR -->
 
 <nav>
 
@@ -43,25 +43,56 @@
 </div>
 
 <ul id="navLinks">
+
 <li><a href="#">Home</a></li>
 <li><a href="#">Tools</a></li>
 <li><a href="#">Features</a></li>
 <li><a href="#">Pricing</a></li>
 <li><a href="#">Contact</a></li>
+
 </ul>
 
 <button id="themeBtn">🌙</button>
 
 </nav>
 
+<!-- HERO -->
+
 <section class="hero">
+
+<h1>
+All In One
+<span>Document Toolkit</span>
+</h1>
+
+<p>
+Compress, Convert, Merge, Split, Resize and Manage PDFs,
+Images and Documents in Seconds.
+</p>
+
+<button class="uploadBtn">
+Get Started
+</button>
+
+</section>
+
+<!-- SEARCH -->
+
 <div class="search-box">
-    <input type="text" placeholder="Search tools...">
+
+<input
+type="text"
+placeholder="Search Tools...">
+
 </div>
+
+<!-- UPLOAD -->
 
 <section class="upload-area">
 
-<div class="drop-zone" id="dropZone">
+<div
+class="drop-zone"
+id="dropZone">
 
 <input
 type="file"
@@ -69,7 +100,9 @@ id="fileInput"
 hidden
 multiple>
 
-<h2>📁 Drag & Drop Files Here</h2>
+<h2>
+📁 Drag & Drop Files Here
+</h2>
 
 <p>
 PDF, JPG, PNG, DOCX Supported
@@ -81,7 +114,8 @@ Select Files
 
 <div class="progress-container">
 
-<div class="progress-bar"
+<div
+class="progress-bar"
 id="progressBar">
 </div>
 
@@ -89,103 +123,16 @@ id="progressBar">
 
 </div>
 
-<div id="previewArea">
-</div>
+<div id="previewArea"></div>
+
 <div id="ocrResult"></div>
 
 <canvas id="qrCanvas"></canvas>
-<div class="tool-card" id="jpgToPdf">
-🖼️ JPG → PDF
-</div>
-
-<div class="tool-card" id="ocrTool">
-🔍 OCR Scanner
-</div>
-
-<div class="tool-card" id="qrGenerator">
-📱 QR Generator
-</div>
-</section>
-
-<div class="blob blob1"></div>
-<div class="blob blob2"></div>
-<div class="blob blob3"></div>
-
-<h1>
-All In One <span>Document Toolkit</span>
-</h1>
-
-<p>
-Compress, Convert, Merge, Split, Resize & Manage
-PDFs, Images and Documents in Seconds.
-</p>
-
-<button class="uploadBtn">
-Get Started
-</button>
 
 </section>
 
-<section class="tools">
-<div class="tool-card" id="compressImage">
-🗜️ Image Compress
-</div>
+<!-- STATS -->
 
-<div class="tool-card" id="resizeImage">
-📐 Image Resize
-</div>
-
-<div class="tool-card" id="jpgToPng">
-🖼️ JPG → PNG
-</div>
-
-<div class="tool-card" id="pngToJpg">
-🖼️ PNG → JPG
-</div>
-
-<div class="tool-card" id="mergePdf">
-📑 PDF Merge
-</div>
-
-<div class="tool-card" id="splitPdf">
-✂️ PDF Split
-</div>
-
-<div class="tool-card" id="rotatePdf">
-🔄 PDF Rotate
-</div>
-
-<div class="card">
-<h3>PDF Tools</h3>
-<p>Compress, Merge, Split PDFs</p>
-</div>
-
-<div class="card">
-<h3>Image Tools</h3>
-<p>Resize, Compress, Convert</p>
-</div>
-
-<div class="card">
-<h3>Document Tools</h3>
-<p>Word, Excel, PPT Conversion</p>
-</div>
-
-<div class="card">
-<h3>OCR Scanner</h3>
-<p>Image To Text Extraction</p>
-</div>
-
-<div class="card">
-<h3>QR Tools</h3>
-<p>Create & Scan QR Codes</p>
-</div>
-
-<div class="card">
-<h3>File Converter</h3>
-<p>Convert Any File Format</p>
-</div>
-
-</section>
 <section class="stats">
 
 <div class="stat">
@@ -210,33 +157,60 @@ Get Started
 
 </section>
 
-<section class="all-tools" id="toolsContainer">
+<!-- TOOLS -->
 
-<div class="tool-card">📄 PDF Compress</div>
-<div class="tool-card">📑 PDF Merge</div>
-<div class="tool-card">✂️ PDF Split</div>
-<div class="tool-card">🔄 PDF Rotate</div>
-<div class="tool-card">🔒 PDF Lock</div>
-<div class="tool-card">🔓 PDF Unlock</div>
+<section
+class="all-tools"
+id="toolsContainer">
 
-<div class="tool-card">🖼️ Image Compress</div>
-<div class="tool-card">📐 Image Resize</div>
-<div class="tool-card">✂️ Image Crop</div>
-<div class="tool-card">💧 Watermark</div>
+<div class="tool-card" id="compressImage">
+🗜️ Image Compress
+</div>
 
-<div class="tool-card">📄 Word To PDF</div>
-<div class="tool-card">📊 Excel To PDF</div>
-<div class="tool-card">📽️ PPT To PDF</div>
+<div class="tool-card" id="resizeImage">
+📐 Image Resize
+</div>
 
-<div class="tool-card">🔍 OCR Scanner</div>
-<div class="tool-card">📱 QR Generator</div>
-<div class="tool-card">📷 QR Scanner</div>
+<div class="tool-card" id="jpgToPng">
+🖼️ JPG → PNG
+</div>
 
-<div class="tool-card">⚡ Password Generator</div>
-<div class="tool-card">🎨 Color Picker</div>
-<div class="tool-card">💾 File Converter</div>
+<div class="tool-card" id="pngToJpg">
+🖼️ PNG → JPG
+</div>
+
+<div class="tool-card" id="jpgToPdf">
+📄 JPG → PDF
+</div>
+
+<div class="tool-card" id="mergePdf">
+📑 PDF Merge
+</div>
+
+<div class="tool-card" id="splitPdf">
+✂️ PDF Split
+</div>
+
+<div class="tool-card" id="rotatePdf">
+🔄 PDF Rotate
+</div>
+
+<div class="tool-card" id="ocrTool">
+🔍 OCR Scanner
+</div>
+
+<div class="tool-card" id="qrGenerator">
+📱 QR Generator
+</div>
+
+<div class="tool-card" id="watermarkTool">
+💧 Image Watermark
+</div>
 
 </section>
+
+<!-- LOGIN -->
+
 <section class="auth-section">
 
 <div class="auth-card">
@@ -263,6 +237,8 @@ Register
 
 </section>
 
+<!-- HISTORY -->
+
 <section class="history-section">
 
 <h2>Recent Downloads</h2>
@@ -270,12 +246,15 @@ Register
 <ul id="historyList"></ul>
 
 </section>
+
+<!-- FOOTER -->
+
 <footer>
 
 <h2>TOXIC</h2>
 
 <p>
-The Ultimate PDF, Image & Document Toolkit.
+The Ultimate PDF, Image & Document Toolkit
 </p>
 
 <p>
@@ -283,6 +262,24 @@ The Ultimate PDF, Image & Document Toolkit.
 </p>
 
 </footer>
+
+<!-- FLOATING BLOBS -->
+
+<div class="blob blob1"></div>
+<div class="blob blob2"></div>
+<div class="blob blob3"></div>
+
+<!-- LIBRARIES -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/compressorjs/1.2.1/compressor.min.js"></script>
+
+<script src="https://unpkg.com/pdf-lib"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<script src="https://unpkg.com/tesseract.js@5/dist/tesseract.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
 
 <script src="script.js"></script>
 
