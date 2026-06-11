@@ -625,3 +625,52 @@ a.click();
 fileInput.click();
 
 });
+document
+.getElementById("rotatePdf")
+?.addEventListener("click",()=>{
+
+fileInput.multiple=false;
+
+fileInput.onchange=async(e)=>{
+
+const file=e.target.files[0];
+
+const bytes=
+await file.arrayBuffer();
+
+const pdf=
+await PDFLib.PDFDocument.load(bytes);
+
+pdf.getPages().forEach(page=>{
+
+page.setRotation(
+PDFLib.degrees(90)
+);
+
+});
+
+const rotated=
+await pdf.save();
+
+const blob=
+new Blob(
+[rotated],
+{type:"application/pdf"}
+);
+
+const a=
+document.createElement("a");
+
+a.href=
+URL.createObjectURL(blob);
+
+a.download=
+"rotated.pdf";
+
+a.click();
+
+};
+
+fileInput.click();
+
+});
