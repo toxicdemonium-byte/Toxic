@@ -507,3 +507,61 @@ reader.readAsDataURL(file);
 fileInput.click();
 
 });
+document
+.getElementById("mergePdf")
+?.addEventListener("click", async()=>{
+
+fileInput.multiple=true;
+
+fileInput.onchange=async(e)=>{
+
+const files=[...e.target.files];
+
+const mergedPdf=
+await PDFLib.PDFDocument.create();
+
+for(const file of files){
+
+const bytes=
+await file.arrayBuffer();
+
+const pdf=
+await PDFLib.PDFDocument.load(bytes);
+
+const pages=
+await mergedPdf.copyPages(
+pdf,
+pdf.getPageIndices()
+);
+
+pages.forEach(page=>{
+mergedPdf.addPage(page);
+});
+
+}
+
+const mergedBytes=
+await mergedPdf.save();
+
+const blob=
+new Blob(
+[mergedBytes],
+{type:"application/pdf"}
+);
+
+const a=
+document.createElement("a");
+
+a.href=
+URL.createObjectURL(blob);
+
+a.download=
+"merged.pdf";
+
+a.click();
+
+};
+
+fileInput.click();
+
+});
