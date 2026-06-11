@@ -674,3 +674,47 @@ a.click();
 fileInput.click();
 
 });
+document
+.getElementById("jpgToPdf")
+?.addEventListener("click",()=>{
+
+fileInput.onchange=(e)=>{
+
+const file=e.target.files[0];
+
+const reader=new FileReader();
+
+reader.onload=(event)=>{
+
+const img=new Image();
+
+img.onload=()=>{
+
+const { jsPDF } = window.jspdf;
+
+const pdf=new jsPDF();
+
+pdf.addImage(
+img,
+"JPEG",
+10,
+10,
+180,
+160
+);
+
+pdf.save("image.pdf");
+
+};
+
+img.src=event.target.result;
+
+};
+
+reader.readAsDataURL(file);
+
+};
+
+fileInput.click();
+
+});
