@@ -148,11 +148,36 @@
 
 <section class="upload-area">
 
-    <div class="drop-zone">
-        <h2>📁 Drag & Drop Files Here</h2>
-        <p>Upload PDF, Images & Documents</p>
-        <button>Select File</button>
-    </div>
+<div class="drop-zone" id="dropZone">
+
+<input
+type="file"
+id="fileInput"
+hidden
+multiple>
+
+<h2>📁 Drag & Drop Files Here</h2>
+
+<p>
+PDF, JPG, PNG, DOCX Supported
+</p>
+
+<button id="selectFile">
+Select Files
+</button>
+
+<div class="progress-container">
+
+<div class="progress-bar"
+id="progressBar">
+</div>
+
+</div>
+
+</div>
+
+<div id="previewArea">
+</div>
 
 </section>
 
