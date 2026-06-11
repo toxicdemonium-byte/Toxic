@@ -1,38 +1,3 @@
-.container{
-    position: relative;
-    width: 850px;
-    height: 550px;
-    background:#111;
-    overflow:hidden;
-}
-
-.form-box{
-    position:absolute;
-    width:50%;
-    transition:.7s ease;
-}
-
-.container.active .login{
-    transform:translateX(-100%);
-}
-
-.container.active .register{
-    transform:translateX(0);
-}
-
-.register{
-    transform:translateX(100%);
-}
-
-
-
-
-
-
-
-
-
-
 
 *{
 margin:0;
@@ -494,4 +459,66 @@ margin:30px auto;
 background:white;
 padding:10px;
 border-radius:15px;
+}
+/* AUTH */
+
+.auth-section{
+padding:80px 8%;
+display:flex;
+justify-content:center;
+}
+
+.auth-card{
+width:400px;
+max-width:95%;
+padding:30px;
+border-radius:25px;
+background:rgba(255,255,255,.05);
+backdrop-filter:blur(20px);
+}
+
+.auth-card h2{
+margin-bottom:20px;
+text-align:center;
+}
+
+.auth-card input{
+width:100%;
+padding:15px;
+margin:10px 0;
+border:none;
+outline:none;
+border-radius:12px;
+}
+
+.auth-card button{
+width:100%;
+padding:15px;
+margin-top:10px;
+border:none;
+cursor:pointer;
+border-radius:12px;
+background:#2563eb;
+color:white;
+}
+
+.register-btn{
+background:#7c3aed;
+}
+
+/* HISTORY */
+
+.history-section{
+padding:80px 8%;
+}
+
+.history-section ul{
+list-style:none;
+}
+
+.history-section li{
+padding:15px;
+margin:10px 0;
+border-radius:15px;
+background:rgba(255,255,255,.05);
 }
