@@ -133,3 +133,149 @@ menuBtn.addEventListener("click",()=>{
 navLinks.classList.toggle("active");
 
 });
+/* FILE SYSTEM */
+
+const fileInput =
+document.getElementById("fileInput");
+
+const selectFile =
+document.getElementById("selectFile");
+
+const previewArea =
+document.getElementById("previewArea");
+
+const progressBar =
+document.getElementById("progressBar");
+
+const dropZone =
+document.getElementById("dropZone");
+
+/* SELECT FILE */
+
+selectFile.onclick=()=>{
+
+fileInput.click();
+
+};
+
+/* FILE CHANGE */
+
+fileInput.addEventListener(
+"change",
+handleFiles
+);
+
+/* DROP */
+
+dropZone.addEventListener(
+"drop",
+(e)=>{
+
+e.preventDefault();
+
+handleFileList(
+e.dataTransfer.files
+);
+
+}
+);
+
+dropZone.addEventListener(
+"dragover",
+(e)=>{
+
+e.preventDefault();
+
+}
+);
+
+/* HANDLE */
+
+function handleFiles(){
+
+handleFileList(
+fileInput.files
+);
+
+}
+
+function handleFileList(files){
+
+previewArea.innerHTML="";
+
+let progress=0;
+
+const timer=
+setInterval(()=>{
+
+progress+=10;
+
+progressBar.style.width=
+progress+"%";
+
+if(progress>=100){
+
+clearInterval(timer);
+
+}
+
+},100);
+
+[...files].forEach(file=>{
+
+const card=
+document.createElement("div");
+
+card.className=
+"preview-card";
+
+if(file.type.startsWith("image")){
+
+const reader=
+new FileReader();
+
+reader.onload=(e)=>{
+
+card.innerHTML=`
+
+<img src="${e.target.result}">
+
+<h4>${file.name}</h4>
+
+<p>
+${(
+file.size/1024
+).toFixed(1)}
+KB
+</p>
+
+`;
+
+};
+
+reader.readAsDataURL(file);
+
+}else{
+
+card.innerHTML=`
+
+<h3>📄</h3>
+
+<h4>${file.name}</h4>
+
+<p>
+${(
+file.size/1024
+).toFixed(1)}
+KB
+</p>
+
+`;
+
+}
+
+previewArea.appendChild(card);
+
+});
+
+}
