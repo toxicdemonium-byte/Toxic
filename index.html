@@ -111,6 +111,11 @@
 
 
 <script src="https://unpkg.com/pdf-lib"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<script src="https://unpkg.com/tesseract.js@5/dist/tesseract.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
 
 </head>
 <body>
@@ -183,7 +188,20 @@ id="progressBar">
 
 <div id="previewArea">
 </div>
+<div id="ocrResult"></div>
 
+<canvas id="qrCanvas"></canvas>
+<div class="tool-card" id="jpgToPdf">
+🖼️ JPG → PDF
+</div>
+
+<div class="tool-card" id="ocrTool">
+🔍 OCR Scanner
+</div>
+
+<div class="tool-card" id="qrGenerator">
+📱 QR Generator
+</div>
 </section>
 
 <div class="blob blob1"></div>
