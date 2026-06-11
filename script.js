@@ -279,3 +279,37 @@ previewArea.appendChild(card);
 });
 
 }
+document
+.getElementById("compressImage")
+?.addEventListener("click",()=>{
+
+fileInput.onchange=(e)=>{
+
+const file=e.target.files[0];
+
+new Compressor(file,{
+
+quality:0.4,
+
+success(result){
+
+const link=
+document.createElement("a");
+
+link.href=
+URL.createObjectURL(result);
+
+link.download=
+"compressed-"+file.name;
+
+link.click();
+
+}
+
+});
+
+};
+
+fileInput.click();
+
+});
