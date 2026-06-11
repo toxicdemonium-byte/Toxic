@@ -313,3 +313,197 @@ link.click();
 fileInput.click();
 
 });
+
+document
+.getElementById("resizeImage")
+?.addEventListener("click",()=>{
+
+fileInput.onchange=(e)=>{
+
+const file=e.target.files[0];
+
+const reader=
+new FileReader();
+
+reader.onload=(event)=>{
+
+const img=
+new Image();
+
+img.onload=()=>{
+
+const canvas=
+document.createElement("canvas");
+
+canvas.width=800;
+canvas.height=600;
+
+const ctx=
+canvas.getContext("2d");
+
+ctx.drawImage(
+img,
+0,
+0,
+800,
+600
+);
+
+canvas.toBlob((blob)=>{
+
+const a=
+document.createElement("a");
+
+a.href=
+URL.createObjectURL(blob);
+
+a.download=
+"resized-image.jpg";
+
+a.click();
+
+});
+
+};
+
+img.src=
+event.target.result;
+
+};
+
+reader.readAsDataURL(file);
+
+};
+
+fileInput.click();
+
+});
+document
+.getElementById("jpgToPng")
+?.addEventListener("click",()=>{
+
+fileInput.onchange=(e)=>{
+
+const file=e.target.files[0];
+
+const reader=
+new FileReader();
+
+reader.onload=(event)=>{
+
+const img=
+new Image();
+
+img.onload=()=>{
+
+const canvas=
+document.createElement("canvas");
+
+canvas.width=
+img.width;
+
+canvas.height=
+img.height;
+
+canvas
+.getContext("2d")
+.drawImage(
+img,
+0,
+0
+);
+
+const png=
+canvas.toDataURL(
+"image/png"
+);
+
+const a=
+document.createElement("a");
+
+a.href=png;
+
+a.download=
+"converted.png";
+
+a.click();
+
+};
+
+img.src=
+event.target.result;
+
+};
+
+reader.readAsDataURL(file);
+
+};
+
+fileInput.click();
+
+});
+document
+.getElementById("pngToJpg")
+?.addEventListener("click",()=>{
+
+fileInput.onchange=(e)=>{
+
+const file=e.target.files[0];
+
+const reader=
+new FileReader();
+
+reader.onload=(event)=>{
+
+const img=
+new Image();
+
+img.onload=()=>{
+
+const canvas=
+document.createElement("canvas");
+
+canvas.width=
+img.width;
+
+canvas.height=
+img.height;
+
+canvas
+.getContext("2d")
+.drawImage(
+img,
+0,
+0
+);
+
+const jpg=
+canvas.toDataURL(
+"image/jpeg",
+0.9
+);
+
+const a=
+document.createElement("a");
+
+a.href=jpg;
+
+a.download=
+"converted.jpg";
+
+a.click();
+
+};
+
+img.src=
+event.target.result;
+
+};
+
+reader.readAsDataURL(file);
+
+};
+
+fileInput.click();
+
+});
