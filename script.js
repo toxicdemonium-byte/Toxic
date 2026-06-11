@@ -1,91 +1,37 @@
+/* =========================
+   CURSOR
+========================= */
 
 const cursor = document.querySelector(".cursor");
 
 document.addEventListener("mousemove",(e)=>{
-cursor.style.left=e.clientX+"px";
-cursor.style.top=e.clientY+"px";
-});
-
-const themeBtn=document.getElementById("themeBtn");
-
-themeBtn.onclick=()=>{
-document.body.classList.toggle("light");
-};
-// Drag Drop Effect
-
-const dropZone=document.querySelector(".drop-zone");
-
-dropZone.addEventListener("dragover",(e)=>{
-e.preventDefault();
-dropZone.style.borderColor="#3b82f6";
-});
-
-dropZone.addEventListener("dragleave",()=>{
-dropZone.style.borderColor="rgba(255,255,255,.2)";
-});
-
-// Live Search
-
-const searchInput =
-document.querySelector(".search-box input");
-
-const tools =
-document.querySelectorAll(".tool-card");
-
-searchInput.addEventListener("keyup",()=>{
-
-const value =
-searchInput.value.toLowerCase();
-
-tools.forEach(tool=>{
-
-const text =
-tool.textContent.toLowerCase();
-
-if(text.includes(value)){
-tool.style.display="block";
-}else{
-tool.style.display="none";
+if(cursor){
+cursor.style.left = e.clientX + "px";
+cursor.style.top = e.clientY + "px";
 }
-
 });
 
-});
-
-/* PRELOADER */
+/* =========================
+   PRELOADER
+========================= */
 
 window.addEventListener("load",()=>{
 
-document.getElementById("preloader")
-.style.display="none";
+const preloader =
+document.getElementById("preloader");
 
-});
-
-/* TOP BUTTON */
-
-const topBtn =
-document.getElementById("topBtn");
-
-window.addEventListener("scroll",()=>{
-
-if(window.scrollY>400){
-topBtn.style.display="block";
-}else{
-topBtn.style.display="none";
+if(preloader){
+preloader.style.display="none";
 }
 
 });
 
-topBtn.onclick=()=>{
+/* =========================
+   DARK MODE
+========================= */
 
-window.scrollTo({
-top:0,
-behavior:"smooth"
-});
-
-};
-
-/* THEME SAVE */
+const themeBtn =
+document.getElementById("themeBtn");
 
 const savedTheme =
 localStorage.getItem("theme");
@@ -94,11 +40,15 @@ if(savedTheme==="light"){
 document.body.classList.add("light");
 }
 
+if(themeBtn){
+
 themeBtn.addEventListener("click",()=>{
 
 document.body.classList.toggle("light");
 
-if(document.body.classList.contains("light")){
+if(
+document.body.classList.contains("light")
+){
 localStorage.setItem("theme","light");
 }else{
 localStorage.setItem("theme","dark");
@@ -106,7 +56,11 @@ localStorage.setItem("theme","dark");
 
 });
 
-/* MOBILE MENU */
+}
+
+/* =========================
+   MOBILE MENU
+========================= */
 
 const menuBtn =
 document.querySelector(".menu-btn");
@@ -114,12 +68,51 @@ document.querySelector(".menu-btn");
 const navLinks =
 document.getElementById("navLinks");
 
+if(menuBtn){
+
 menuBtn.addEventListener("click",()=>{
 
 navLinks.classList.toggle("active");
 
 });
-/* FILE SYSTEM */
+
+}
+
+/* =========================
+   TOP BUTTON
+========================= */
+
+const topBtn =
+document.getElementById("topBtn");
+
+window.addEventListener("scroll",()=>{
+
+if(!topBtn) return;
+
+if(window.scrollY > 400){
+topBtn.style.display="block";
+}else{
+topBtn.style.display="none";
+}
+
+});
+
+if(topBtn){
+
+topBtn.addEventListener("click",()=>{
+
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+
+});
+
+}
+
+/* =========================
+   FILE SYSTEM
+========================= */
 
 const fileInput =
 document.getElementById("fileInput");
@@ -136,22 +129,31 @@ document.getElementById("progressBar");
 const dropZone =
 document.getElementById("dropZone");
 
-/* SELECT FILE */
+if(selectFile){
 
 selectFile.onclick=()=>{
-
 fileInput.click();
-
 };
 
-/* FILE CHANGE */
+}
+
+if(fileInput){
 
 fileInput.addEventListener(
 "change",
 handleFiles
 );
 
-/* DROP */
+}
+
+if(dropZone){
+
+dropZone.addEventListener(
+"dragover",
+(e)=>{
+e.preventDefault();
+}
+);
 
 dropZone.addEventListener(
 "drop",
@@ -166,16 +168,7 @@ e.dataTransfer.files
 }
 );
 
-dropZone.addEventListener(
-"dragover",
-(e)=>{
-
-e.preventDefault();
-
 }
-);
-
-/* HANDLE */
 
 function handleFiles(){
 
@@ -187,54 +180,48 @@ fileInput.files
 
 function handleFileList(files){
 
+if(!previewArea) return;
+
 previewArea.innerHTML="";
 
 let progress=0;
 
-const timer=
-setInterval(()=>{
+const timer=setInterval(()=>{
 
 progress+=10;
 
+if(progressBar){
 progressBar.style.width=
 progress+"%";
+}
 
 if(progress>=100){
-
 clearInterval(timer);
-
 }
 
 },100);
 
 [...files].forEach(file=>{
 
-const card=
+const card =
 document.createElement("div");
 
 card.className=
 "preview-card";
 
-if(file.type.startsWith("image")){
+if(
+file.type.startsWith("image")
+){
 
-const reader=
+const reader =
 new FileReader();
 
 reader.onload=(e)=>{
 
 card.innerHTML=`
-
 <img src="${e.target.result}">
-
 <h4>${file.name}</h4>
-
-<p>
-${(
-file.size/1024
-).toFixed(1)}
-KB
-</p>
-
+<p>${(file.size/1024).toFixed(1)} KB</p>
 `;
 
 };
@@ -244,18 +231,9 @@ reader.readAsDataURL(file);
 }else{
 
 card.innerHTML=`
-
 <h3>📄</h3>
-
 <h4>${file.name}</h4>
-
-<p>
-${(
-file.size/1024
-).toFixed(1)}
-KB
-</p>
-
+<p>${(file.size/1024).toFixed(1)} KB</p>
 `;
 
 }
@@ -265,503 +243,54 @@ previewArea.appendChild(card);
 });
 
 }
-document
-.getElementById("compressImage")
-?.addEventListener("click",()=>{
 
-fileInput.onchange=(e)=>{
+/* =========================
+   LIVE SEARCH
+========================= */
 
-const file=e.target.files[0];
-
-new Compressor(file,{
-
-quality:0.4,
-
-success(result){
-
-const link=
-document.createElement("a");
-
-link.href=
-URL.createObjectURL(result);
-
-link.download=
-"compressed-"+file.name;
-
-link.click();
-
-}
-
-});
-
-};
-
-fileInput.click();
-
-});
-
-document
-.getElementById("resizeImage")
-?.addEventListener("click",()=>{
-
-fileInput.onchange=(e)=>{
-
-const file=e.target.files[0];
-
-const reader=
-new FileReader();
-
-reader.onload=(event)=>{
-
-const img=
-new Image();
-
-img.onload=()=>{
-
-const canvas=
-document.createElement("canvas");
-
-canvas.width=800;
-canvas.height=600;
-
-const ctx=
-canvas.getContext("2d");
-
-ctx.drawImage(
-img,
-0,
-0,
-800,
-600
+const searchInput =
+document.querySelector(
+".search-box input"
 );
 
-canvas.toBlob((blob)=>{
-
-const a=
-document.createElement("a");
-
-a.href=
-URL.createObjectURL(blob);
-
-a.download=
-"resized-image.jpg";
-
-a.click();
-
-});
-
-};
-
-img.src=
-event.target.result;
-
-};
-
-reader.readAsDataURL(file);
-
-};
-
-fileInput.click();
-
-});
-document
-.getElementById("jpgToPng")
-?.addEventListener("click",()=>{
-
-fileInput.onchange=(e)=>{
-
-const file=e.target.files[0];
-
-const reader=
-new FileReader();
-
-reader.onload=(event)=>{
-
-const img=
-new Image();
-
-img.onload=()=>{
-
-const canvas=
-document.createElement("canvas");
-
-canvas.width=
-img.width;
-
-canvas.height=
-img.height;
-
-canvas
-.getContext("2d")
-.drawImage(
-img,
-0,
-0
+const tools =
+document.querySelectorAll(
+".tool-card"
 );
 
-const png=
-canvas.toDataURL(
-"image/png"
-);
+if(searchInput){
 
-const a=
-document.createElement("a");
+searchInput.addEventListener(
+"keyup",
+()=>{
 
-a.href=png;
+const value =
+searchInput.value.toLowerCase();
 
-a.download=
-"converted.png";
+tools.forEach(tool=>{
 
-a.click();
+const text =
+tool.textContent.toLowerCase();
 
-};
+tool.style.display =
+text.includes(value)
+? "block"
+: "none";
 
-img.src=
-event.target.result;
-
-};
-
-reader.readAsDataURL(file);
-
-};
-
-fileInput.click();
-
-});
-document
-.getElementById("pngToJpg")
-?.addEventListener("click",()=>{
-
-fileInput.onchange=(e)=>{
-
-const file=e.target.files[0];
-
-const reader=
-new FileReader();
-
-reader.onload=(event)=>{
-
-const img=
-new Image();
-
-img.onload=()=>{
-
-const canvas=
-document.createElement("canvas");
-
-canvas.width=
-img.width;
-
-canvas.height=
-img.height;
-
-canvas
-.getContext("2d")
-.drawImage(
-img,
-0,
-0
-);
-
-const jpg=
-canvas.toDataURL(
-"image/jpeg",
-0.9
-);
-
-const a=
-document.createElement("a");
-
-a.href=jpg;
-
-a.download=
-"converted.jpg";
-
-a.click();
-
-};
-
-img.src=
-event.target.result;
-
-};
-
-reader.readAsDataURL(file);
-
-};
-
-fileInput.click();
-
-});
-document
-.getElementById("mergePdf")
-?.addEventListener("click", async()=>{
-
-fileInput.multiple=true;
-
-fileInput.onchange=async(e)=>{
-
-const files=[...e.target.files];
-
-const mergedPdf=
-await PDFLib.PDFDocument.create();
-
-for(const file of files){
-
-const bytes=
-await file.arrayBuffer();
-
-const pdf=
-await PDFLib.PDFDocument.load(bytes);
-
-const pages=
-await mergedPdf.copyPages(
-pdf,
-pdf.getPageIndices()
-);
-
-pages.forEach(page=>{
-mergedPdf.addPage(page);
 });
 
 }
-
-const mergedBytes=
-await mergedPdf.save();
-
-const blob=
-new Blob(
-[mergedBytes],
-{type:"application/pdf"}
 );
-
-const a=
-document.createElement("a");
-
-a.href=
-URL.createObjectURL(blob);
-
-a.download=
-"merged.pdf";
-
-a.click();
-
-};
-
-fileInput.click();
-
-});
-document
-.getElementById("splitPdf")
-?.addEventListener("click",()=>{
-
-fileInput.multiple=false;
-
-fileInput.onchange=async(e)=>{
-
-const file=e.target.files[0];
-
-const bytes=
-await file.arrayBuffer();
-
-const pdf=
-await PDFLib.PDFDocument.load(bytes);
-
-for(
-let i=0;
-i<pdf.getPageCount();
-i++
-){
-
-const newPdf=
-await PDFLib.PDFDocument.create();
-
-const [page]=
-await newPdf.copyPages(
-pdf,
-[i]
-);
-
-newPdf.addPage(page);
-
-const pdfBytes=
-await newPdf.save();
-
-const blob=
-new Blob(
-[pdfBytes],
-{type:"application/pdf"}
-);
-
-const a=
-document.createElement("a");
-
-a.href=
-URL.createObjectURL(blob);
-
-a.download=
-`page-${i+1}.pdf`;
-
-a.click();
 
 }
 
-};
+/* =========================
+   DOWNLOAD HISTORY
+========================= */
 
-fileInput.click();
-
-});
-document
-.getElementById("rotatePdf")
-?.addEventListener("click",()=>{
-
-fileInput.multiple=false;
-
-fileInput.onchange=async(e)=>{
-
-const file=e.target.files[0];
-
-const bytes=
-await file.arrayBuffer();
-
-const pdf=
-await PDFLib.PDFDocument.load(bytes);
-
-pdf.getPages().forEach(page=>{
-
-page.setRotation(
-PDFLib.degrees(90)
-);
-
-});
-
-const rotated=
-await pdf.save();
-
-const blob=
-new Blob(
-[rotated],
-{type:"application/pdf"}
-);
-
-const a=
-document.createElement("a");
-
-a.href=
-URL.createObjectURL(blob);
-
-a.download=
-"rotated.pdf";
-
-a.click();
-
-};
-
-fileInput.click();
-
-});
-document
-.getElementById("jpgToPdf")
-?.addEventListener("click",()=>{
-
-fileInput.onchange=(e)=>{
-
-const file=e.target.files[0];
-
-const reader=new FileReader();
-
-reader.onload=(event)=>{
-
-const img=new Image();
-
-img.onload=()=>{
-
-const { jsPDF } = window.jspdf;
-
-const pdf=new jsPDF();
-
-pdf.addImage(
-img,
-"JPEG",
-10,
-10,
-180,
-160
-);
-
-pdf.save("image.pdf");
-
-};
-
-img.src=event.target.result;
-
-};
-
-reader.readAsDataURL(file);
-
-};
-
-fileInput.click();
-
-});
-document
-.getElementById("ocrTool")
-?.addEventListener("click",()=>{
-
-fileInput.onchange=async(e)=>{
-
-const file=e.target.files[0];
-
-document
-.getElementById("ocrResult")
-.innerHTML="Scanning...";
-
-const result=
-await Tesseract.recognize(
-file,
-"eng"
-);
-
-document
-.getElementById("ocrResult")
-.innerText=
-result.data.text;
-
-};
-
-fileInput.click();
-
-});
-document
-.getElementById("qrGenerator")
-?.addEventListener("click",()=>{
-
-const text=
-prompt("Enter text or URL");
-
-if(!text) return;
-
-QRCode.toCanvas(
-
-document.getElementById(
-"qrCanvas"
-),
-
-text,
-
-function(error){
-
-if(error)
-console.error(error);
-
-}
-
-);
-
-});
 function addToHistory(name){
 
-let history=
+let history =
 JSON.parse(
 localStorage.getItem(
 "downloads"
@@ -781,7 +310,7 @@ renderHistory();
 
 function renderHistory(){
 
-const list=
+const list =
 document.getElementById(
 "historyList"
 );
@@ -790,7 +319,7 @@ if(!list) return;
 
 list.innerHTML="";
 
-let history=
+let history =
 JSON.parse(
 localStorage.getItem(
 "downloads"
@@ -799,7 +328,7 @@ localStorage.getItem(
 
 history.reverse().forEach(item=>{
 
-const li=
+const li =
 document.createElement("li");
 
 li.textContent=item;
@@ -811,3 +340,175 @@ list.appendChild(li);
 }
 
 renderHistory();
+
+/* =========================
+   IMAGE WATERMARK
+========================= */
+
+const watermarkTool =
+document.getElementById(
+"watermarkTool"
+);
+
+if(watermarkTool){
+
+watermarkTool.addEventListener(
+"click",
+()=>{
+
+fileInput.onchange=(e)=>{
+
+const file=e.target.files[0];
+
+const reader=
+new FileReader();
+
+reader.onload=(event)=>{
+
+const img=
+new Image();
+
+img.onload=()=>{
+
+const canvas=
+document.createElement("canvas");
+
+canvas.width=
+img.width;
+
+canvas.height=
+img.height;
+
+const ctx=
+canvas.getContext("2d");
+
+ctx.drawImage(img,0,0);
+
+ctx.font="40px Arial";
+
+ctx.fillStyle=
+"rgba(255,255,255,.5)";
+
+ctx.fillText(
+"TOXIC",
+50,
+80
+);
+
+const a=
+document.createElement("a");
+
+a.href=
+canvas.toDataURL();
+
+a.download=
+"watermark.png";
+
+a.click();
+
+addToHistory(
+"watermark.png"
+);
+
+};
+
+img.src=
+event.target.result;
+
+};
+
+reader.readAsDataURL(file);
+
+};
+
+fileInput.click();
+
+}
+);
+
+}
+
+/* =========================
+   QR GENERATOR
+========================= */
+
+const qrGenerator =
+document.getElementById(
+"qrGenerator"
+);
+
+if(qrGenerator){
+
+qrGenerator.addEventListener(
+"click",
+()=>{
+
+const text =
+prompt(
+"Enter URL or Text"
+);
+
+if(!text) return;
+
+QRCode.toCanvas(
+document.getElementById(
+"qrCanvas"
+),
+text
+);
+
+}
+);
+
+}
+
+/* =========================
+   OCR
+========================= */
+
+const ocrTool =
+document.getElementById(
+"ocrTool"
+);
+
+if(ocrTool){
+
+ocrTool.addEventListener(
+"click",
+()=>{
+
+fileInput.onchange =
+async(e)=>{
+
+const file =
+e.target.files[0];
+
+const output =
+document.getElementById(
+"ocrResult"
+);
+
+output.innerHTML =
+"Scanning...";
+
+const result =
+await Tesseract.recognize(
+file,
+"eng"
+);
+
+output.innerText =
+result.data.text;
+
+};
+
+fileInput.click();
+
+}
+);
+
+}
+
+console.log(
+"TOXIC Toolkit Loaded Successfully"
+);
