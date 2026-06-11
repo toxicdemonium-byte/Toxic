@@ -479,4 +479,19 @@ background:#3b82f6;
 
 transition:.3s;
 
+}#ocrResult{
+max-width:1000px;
+margin:30px auto;
+padding:20px;
+border-radius:20px;
+background:rgba(255,255,255,.05);
+white-space:pre-wrap;
+}
+
+#qrCanvas{
+display:block;
+margin:30px auto;
+background:white;
+padding:10px;
+border-radius:15px;
 }
