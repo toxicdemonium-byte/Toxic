@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Verde & Oak — Crafted Living</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- Custom Cursor -->
+<div class="cursor-dot"></div>
+<div class="cursor-ring"></div>
+
+<!-- Preloader -->
+<div class="preloader" id="preloader">
+  <div class="preloader-mark">V&amp;O</div>
+</div>
+
+<!-- Header -->
+<header class="site-header" id="siteHeader">
+  <div class="container header-inner">
+    <a href="#home" class="logo">
+      <span class="logo-mark">V&amp;O</span>
+      <span class="logo-text">Verde &amp; Oak</span>
+    </a>
+
+    <nav class="main-nav" id="mainNav">
+      <a href="#home" class="nav-link active" data-text="Home">Home</a>
+      <a href="#shop" class="nav-link" data-text="Shop">Shop</a>
+      <a href="#gallery" class="nav-link" data-text="Gallery">Gallery</a>
+      <a href="#journal" class="nav-link" data-text="Journal">Journal</a>
+      <a href="#reviews" class="nav-link" data-text="Reviews">Reviews</a>
+      <a href="#about" class="nav-link" data-text="About">About</a>
+      <a href="#contact" class="nav-link" data-text="Contact">Contact</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="icon-btn" id="searchToggle" aria-label="Search">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </button>
+      <button class="icon-btn" id="cartToggle" aria-label="Cart">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.3 4.6A1 1 0 0 0 5.6 19H17"/><circle cx="9" cy="21" r="1"/><circle cx="17" cy="21" r="1"/></svg>
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Search Bar -->
+  <div class="search-bar" id="searchBar">
+    <div class="container">
+      <input type="text" placeholder="Search products, journal entries…" id="searchInput">
+      <button id="searchClose">&times;</button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile Nav -->
+<div class="mobile-nav" id="mobileNav">
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#shop">Shop</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#journal">Journal</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</div>
+
+<!-- Cart Drawer -->
+<div class="cart-drawer" id="cartDrawer">
+  <div class="cart-drawer-header">
+    <h3>Your Bag</h3>
+    <button id="cartClose">&times;</button>
+  </div>
+  <div class="cart-items" id="cartItems">
+    <p class="cart-empty">Your bag is empty. Time to fix that.</p>
+  </div>
+  <div class="cart-footer">
+    <div class="cart-subtotal">
+      <span>Subtotal</span>
+      <span id="cartSubtotal">$0.00</span>
+    </div>
+    <button class="btn btn-primary btn-full" id="checkoutBtn">Checkout</button>
+  </div>
+</div>
+<div class="overlay" id="overlay"></div>
+
+<!-- ========== HERO ========== -->
+<section class="hero" id="home">
+  <div class="hero-bg">
+    <div class="hero-grain"></div>
+    <div class="hero-shape shape-1"></div>
+    <div class="hero-shape shape-2"></div>
+  </div>
+  <div class="container hero-inner">
+    <p class="hero-eyebrow reveal">Small batch · Hand finished · Since 2015</p>
+    <h1 class="hero-title">
+      <span class="reveal" style="--d:0">Objects made</span>
+      <span class="reveal" style="--d:1">to be <em>lived</em> with,</span>
+      <span class="reveal" style="--d:2">not <em>around</em>.</span>
+    </h1>
+    <p class="hero-sub reveal" style="--d:3">
+      Verde &amp; Oak designs considered home goods — ceramics, textiles, and lighting —
+      built from honest materials, finished by hand, and made to outlast trend cycles.
+    </p>
+    <div class="hero-cta reveal" style="--d:4">
+      <a href="#shop" class="btn btn-primary magnetic">
+        <span>Shop the collection</span>
+      </a>
+      <a href="#journal" class="btn btn-ghost magnetic">
+        <span>Read the journal</span>
+      </a>
+    </div>
+    <div class="hero-stats reveal" style="--d:5">
+      <div class="stat">
+        <span class="stat-num" data-count="12">0</span>
+        <span class="stat-label">Years of craft</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num" data-count="48">0</span>
+        <span class="stat-label">Original products</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num" data-count="9400">0</span>
+        <span class="stat-label">Happy homes</span>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-indicator">
+    <span>Scroll</span>
+    <div class="scroll-line"><div class="scroll-dot"></div></div>
+  </div>
+</section>
+
+<!-- ========== MARQUEE ========== -->
+<div class="marquee">
+  <div class="marquee-track">
+    <span>Hand-thrown ceramics</span>
+    <span>•</span>
+    <span>Organic linen textiles</span>
+    <span>•</span>
+    <span>Sculptural lighting</span>
+    <span>•</span>
+    <span>Sustainably sourced oak</span>
+    <span>•</span>
+    <span>Free shipping over $120</span>
+    <span>•</span>
+    <span>Hand-thrown ceramics</span>
+    <span>•</span>
+    <span>Organic linen textiles</span>
+    <span>•</span>
+    <span>Sculptural lighting</span>
+    <span>•</span>
+    <span>Sustainably sourced oak</span>
+    <span>•</span>
+    <span>Free shipping over $120</span>
+    <span>•</span>
+  </div>
+</div>
+
+<!-- ========== SHOP ========== -->
+<section class="section" id="shop">
+  <div class="container">
+    <div class="section-head">
+      <p class="section-eyebrow reveal">01 — The Collection</p>
+      <h2 class="section-title reveal">Pieces worth keeping</h2>
+      <p class="section-desc reveal">
+        Every item is photographed in natural light so you can see exactly what arrives at your door.
+        Tap any piece to preview details, materials, and care instructions.
+      </p>
+    </div>
+
+    <div class="filter-bar reveal">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="ceramics">Ceramics</button>
+      <button class="filter-btn" data-filter="textiles">Textiles</button>
+      <button class="filter-btn" data-filter="lighting">Lighting</button>
+      <button class="filter-btn" data-filter="furniture">Furniture</button>
+    </div>
+
+    <div class="product-grid" id="productGrid">
+      <!-- Injected by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- ========== GALLERY / SCREENSHOT PREVIEW ========== -->
+<section class="section section-dark" id="gallery">
+  <div class="container">
+    <div class="section-head">
+      <p class="section-eyebrow reveal">02 — In the Wild</p>
+      <h2 class="section-title reveal">From our studio to your space</h2>
+      <p class="section-desc reveal">
+        A look inside the workshop and the homes our pieces live in. Click any image to expand.
+      </p>
+    </div>
+
+    <div class="gallery-grid">
+      <div class="gallery-item reveal" data-img="0"><img src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?w=900&q=80" alt="Ceramic studio workspace with handmade pottery"><div class="gallery-overlay"><span>Studio — Throwing Room</span></div></div>
+      <div class="gallery-item reveal" data-img="1"><img src="https://images.unsplash.com/photo-1567016432779-094069958ea5?w=900&q=80" alt="Minimalist living room styled with handmade ceramics"><div class="gallery-overlay"><span>Featured Home — Lisbon</span></div></div>
+      <div class="gallery-item reveal" data-img="2"><img src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=900&q=80" alt="Close up of textured linen textiles on a chair"><div class="gallery-overlay"><span>Textile Detail — Linen Weave</span></div></div>
+      <div class="gallery-item reveal" data-img="3"><img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=900&q=80" alt="Warm interior with sculptural ceramic lamp"><div class="gallery-overlay"><span>Featured Home — Copenhagen</span></div></div>
+      <div class="gallery-item reveal" data-img="4"><img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?w=900&q=80" alt="Artisan hands shaping clay on a pottery wheel"><div class="gallery-overlay"><span>Process — Hand Finishing</span></div></div>
+      <div class="gallery-item reveal" data-img="5"><img src="https://images.unsplash.com/photo-1538688525198-9b88f6f53126?w=900&q=80" alt="Dining table set with handmade ceramic dinnerware"><div class="gallery-overlay"><span>Table Setting — Autumn Edit</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose">&times;</button>
+  <button class="lightbox-nav lightbox-prev" id="lightboxPrev">&larr;</button>
+  <img src="" alt="" id="lightboxImg">
+  <button class="lightbox-nav lightbox-next" id="lightboxNext">&rarr;</button>
+  <p class="lightbox-caption" id="lightboxCaption"></p>
+</div>
+
+<!-- ========== JOURNAL / BLOG ========== -->
+<section class="section" id="journal">
+  <div class="container">
+    <div class="section-head">
+      <p class="section-eyebrow reveal">03 — The Journal</p>
+      <h2 class="section-title reveal">Notes on slow living &amp; craft</h2>
+      <p class="section-desc reveal">
+        Stories from the studio, material guides, and ideas for living with fewer, better things.
+      </p>
+    </div>
+
+    <div class="journal-grid">
+      <article class="journal-card journal-featured reveal" data-post="0">
+        <div class="journal-img">
+          <img src="https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?w=1000&q=80" alt="Potter's hands glazing a ceramic bowl">
+          <span class="journal-tag">Craft</span>
+        </div>
+        <div class="journal-body">
+          <span class="journal-meta">June 02, 2026 · 6 min read</span>
+          <h3>Why we still glaze every piece by hand</h3>
+          <p>Automation could cut our glazing time by two-thirds. Here's the case we keep making against it — and what we've learned from the pieces that "fail" along the way.</p>
+          <span class="journal-link">Read the story <i>&rarr;</i></span>
+        </div>
+      </article>
+
+      <article class="journal-card reveal" data-post="1">
+        <div class="journal-img">
+          <img src="https://images.unsplash.com/photo-1631679706909-1844bbd07221?w=700&q=80" alt="Linen fabric rolls in natural light">
+          <span class="journal-tag">Materials</span>
+        </div>
+        <div class="journal-body">
+          <span class="journal-meta">May 24, 2026 · 4 min read</span>
+          <h3>A short guide to caring for raw linen</h3>
+          <p>Linen gets better with age, if you let it. Three habits that keep our textiles soft for decades, not seasons.</p>
+          <span class="journal-link">Read the story <i>&rarr;</i></span>
+        </div>
+      </article>
+
+      <article class="journal-card reveal" data-post="2">
+        <div class="journal-img">
+          <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=700&q=80" alt="Minimalist wooden furniture in a sunlit room">
+          <span class="journal-tag">Studio</span>
+        </div>
+        <div class="journal-body">
+          <span class="journal-meta">May 11, 2026 · 5 min read</span>
+          <h3>Inside our zero-waste oak workshop</h3>
+          <p>Every offcut becomes something — coasters, drawer pulls, or kindling for the kiln. A walk through our material loop.</p>
+          <span class="journal-link">Read the story <i>&rarr;</i></span>
+        </div>
+      </article>
+
+      <article class="journal-card reveal" data-post="3">
+        <div class="journal-img">
+          <img src="https://images.unsplash.com/photo-1493857671505-72967e2e9760?w=700&q=80" alt="Cozy reading nook styled with handmade objects">
+          <span class="journal-tag">Living</span>
+        </div>
+        <div class="journal-body">
+          <span class="journal-meta">April 29, 2026 · 7 min read</span>
+          <h3>Designing a corner that asks you to slow down</h3>
+          <p>You don't need a redesign — you need one chair, one light, and one rule about your phone. A small case study.</p>
+          <span class="journal-link">Read the story <i>&rarr;</i></span>
+        </div>
+      </article>
+    </div>
+
+    <div class="journal-cta reveal">
+      <button class="btn btn-outline" id="loadMorePosts">Load more stories</button>
+    </div>
+  </div>
+</section>
+
+<!-- Blog Post Modal -->
+<div class="post-modal" id="postModal">
+  <div class="post-modal-inner">
+    <button class="post-modal-close" id="postModalClose">&times;</button>
+    <div class="post-modal-content" id="postModalContent"></div>
+  </div>
+</div>
+
+<!-- ========== REVIEWS ========== -->
+<section class="section section-dark" id="reviews">
+  <div class="container">
+    <div class="section-head">
+      <p class="section-eyebrow reveal">04 — Words From Customers</p>
+      <h2 class="section-title reveal">9,400+ homes, one standard</h2>
+    </div>
+
+    <div class="reviews-track-wrap reveal">
+      <div class="reviews-track" id="reviewsTrack">
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"The Kobo vase arrived better than the photos — and the photos were already gorgeous. The glaze has this depth you just can't capture on screen."</p>
+          <div class="review-author">
+            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80" alt="Portrait of customer Amara N.">
+            <div><strong>Amara N.</strong><span>Lagos, Nigeria</span></div>
+          </div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"I've bought from three 'sustainable' furniture brands before this. Verde & Oak is the only one where the oak side table actually feels like it'll outlive me."</p>
+          <div class="review-author">
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&q=80" alt="Portrait of customer Liam T.">
+            <div><strong>Liam T.</strong><span>Manchester, UK</span></div>
+          </div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"The linen bedding softened up after the first wash exactly like they said. Customer support also answered my care questions within an hour. Rare these days."</p>
+          <div class="review-author">
+            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&q=80" alt="Portrait of customer Priya S.">
+            <div><strong>Priya S.</strong><span>Pune, India</span></div>
+          </div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Ordered the Hearth lamp for my reading corner. The light it casts is genuinely different — warm, low, like candlelight but you can actually read by it."</p>
+          <div class="review-author">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80" alt="Portrait of customer Marco D.">
+            <div><strong>Marco D.</strong><span>Turin, Italy</span></div>
+          </div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"My whole kitchen counter is now Verde & Oak ceramics and I have zero regrets. Each piece is slightly different which somehow makes the set feel more complete."</p>
+          <div class="review-author">
+            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&q=80" alt="Portrait of customer Hana K.">
+            <div><strong>Hana K.</strong><span>Seoul, South Korea</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="reviews-summary reveal">
+      <div class="rs-score">
+        <span class="rs-number">4.9</span>
+        <div class="rs-stars">★★★★★</div>
+        <span class="rs-count">based on 2,148 verified reviews</span>
+      </div>
+      <div class="rs-bars">
+        <div class="rs-bar-row"><span>5★</span><div class="rs-bar"><div style="width:88%"></div></div><span>88%</span></div>
+        <div class="rs-bar-row"><span>4★</span><div class="rs-bar"><div style="width:9%"></div></div><span>9%</span></div>
+        <div class="rs-bar-row"><span>3★</span><div class="rs-bar"><div style="width:2%"></div></div><span>2%</span></div>
+        <div class="rs-bar-row"><span>2★</span><div class="rs-bar"><div style="width:1%"></div></div><span>1%</span></div>
+        <div class="rs-bar-row"><span>1★</span><div class="rs-bar"><div style="width:0%"></div></div><span>0%</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== ABOUT ========== -->
+<section class="section about-section" id="about">
+  <div class="container about-grid">
+    <div class="about-media reveal">
+      <img src="https://images.unsplash.com/photo-1571115177098-24ec42ed204d?w=800&q=80" alt="Founder working at a pottery wheel in the studio">
+      <div class="about-media-badge">
+        <span class="abm-num">12</span>
+        <span class="abm-text">Years<br>in business</span>
+      </div>
+    </div>
+    <div class="about-content">
+      <p class="section-eyebrow reveal">05 — Our Story</p>
+      <h2 class="section-title reveal">Built on a kitchen table, scaled by hand</h2>
+      <p class="reveal">
+        Verde &amp; Oak started in 2015 in a one-room studio with a single kick-wheel and a stack
+        of reclaimed oak. The goal was simple: make the everyday objects — bowls, lamps, throws,
+        side tables — that people actually reach for, and make them well enough that no one
+        ever needs to replace them.
+      </p>
+      <p class="reveal">
+        Today we're a team of fourteen makers working across ceramics, textiles, and woodwork.
+        We still test every glaze recipe by eating off it for a month, and every textile gets
+        washed forty times before it ships, so the "broken in" feeling starts on day one.
+      </p>
+      <div class="about-values reveal">
+        <div class="value-item">
+          <div class="value-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          </div>
+          <div><strong>Honest materials</strong><p>Stoneware, linen, and FSC-certified oak — nothing else.</p></div>
+        </div>
+        <div class="value-item">
+          <div class="value-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <div><strong>Made slowly, on purpose</strong><p>Most pieces take 5–14 days from studio to packing.</p></div>
+        </div>
+        <div class="value-item">
+          <div class="value-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+          <div><strong>Designed to be repaired</strong><p>Free glaze touch-ups and re-oiling, for life.</p></div>
+        </div>
+      </div>
+      <a href="#contact" class="btn btn-primary magnetic"><span>Visit the studio</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ========== NEWSLETTER ========== -->
+<section class="newsletter">
+  <div class="container newsletter-inner reveal">
+    <div class="newsletter-text">
+      <h2>Join the Verde &amp; Oak circle</h2>
+      <p>New drops, restock alerts, and journal entries — once every couple of weeks, never more.</p>
+    </div>
+    <form class="newsletter-form" id="newsletterForm">
+      <input type="email" placeholder="you@example.com" required>
+      <button type="submit" class="btn btn-primary">Subscribe</button>
+    </form>
+  </div>
+</section>
+
+<!-- ========== CONTACT ========== -->
+<section class="section" id="contact">
+  <div class="container">
+    <div class="section-head">
+      <p class="section-eyebrow reveal">06 — Get In Touch</p>
+      <h2 class="section-title reveal">Visit, write, or just say hello</h2>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <div class="contact-item">
+          <span class="contact-label">Studio &amp; Showroom</span>
+          <p>14 Linden Court, Bristol, BS1 5TR, United Kingdom</p>
+        </div>
+        <div class="contact-item">
+          <span class="contact-label">Hours</span>
+          <p>Tuesday–Saturday, 10:00–17:00</p>
+        </div>
+        <div class="contact-item">
+          <span class="contact-label">Email</span>
+          <p><a href="mailto:hello@verdeoak.studio">hello@verdeoak.studio</a></p>
+        </div>
+        <div class="contact-item">
+          <span class="contact-label">Follow</span>
+          <div class="social-links">
+            <a href="#" aria-label="Instagram">Instagram</a>
+            <a href="#" aria-label="Pinterest">Pinterest</a>
+            <a href="#" aria-label="TikTok">TikTok</a>
+          </div>
+        </div>
+      </div>
+      <form class="contact-form reveal" id="contactForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="cName">Name</label>
+            <input type="text" id="cName" required>
+          </div>
+          <div class="form-group">
+            <label for="cEmail">Email</label>
+            <input type="email" id="cEmail" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="cSubject">Subject</label>
+          <input type="text" id="cSubject" required>
+        </div>
+        <div class="form-group">
+          <label for="cMessage">Message</label>
+          <textarea id="cMessage" rows="5" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-full magnetic"><span>Send message</span></button>
+        <p class="form-success" id="formSuccess">Thanks — we'll reply within one business day.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer class="site-footer">
+  <div class="container footer-top">
+    <div class="footer-brand">
+      <a href="#home" class="logo">
+        <span class="logo-mark">V&amp;O</span>
+        <span class="logo-text">Verde &amp; Oak</span>
+      </a>
+      <p>Considered home goods, hand-finished in Bristol since 2015.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Shop</h4>
+      <a href="#shop">Ceramics</a>
+      <a href="#shop">Textiles</a>
+      <a href="#shop">Lighting</a>
+      <a href="#shop">Furniture</a>
+    </div>
+    <div class="footer-col">
+      <h4>Studio</h4>
+      <a href="#about">Our story</a>
+      <a href="#journal">Journal</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#gallery">Gallery</a>
+    </div>
+    <div class="footer-col">
+      <h4>Support</h4>
+      <a href="#contact">Contact</a>
+      <a href="#">Shipping &amp; Returns</a>
+      <a href="#">Care Guides</a>
+      <a href="#">FAQ</a>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <p>&copy; 2026 Verde &amp; Oak Studio. All rights reserved.</p>
+    <p>Designed with care in Bristol, UK.</p>
+  </div>
+</footer>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<!-- Back to top -->
+<button class="back-to-top" id="backToTop" aria-label="Back to top">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+
+<script src="js/script.js"></script>
+</body>
+</html>
